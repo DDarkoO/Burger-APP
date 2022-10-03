@@ -1,0 +1,47 @@
+﻿@using BurgerApp.DOMAIN.Enums
+@using BurgerApp.VIEWMODELS.OrderViewModels
+@model OrderViewModel
+
+<h3> Edit the requested order</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditOrder2" method="post">
+
+            <input type="hidden" asp-for="Id" value="@Model.Id"/>
+            @*<input type="hidden" asp-for="UserId" value="@Model.UserId" />*@
+            @*<input type="hidden" asp-for="StoreAddress" value="@Model.StoreAddress" />*@
+            @*<input type="hidden" asp-for="PaymentMethod" value="@Model.PaymentMethod" />*@
+            @*<input type="hidden" asp-for="IsDelivered" value="@Model.IsDelivered" />*@
+            @*<input type="hidden" asp-for="NumberOfBurgers" value="@Model.NumberOfBurgers" />*@
+            <input type="hidden" asp-for="BurgerOrders" value="@Model.BurgerOrders" />
+            <input type="hidden" asp-for="BurgerNames" value="@Model.BurgerNames" />
+            <input type="hidden" asp-for="BurgerSizes" value="@Model.BurgerSizes" />
+
+
+            <div class="form-group">
+                <label asp-for="StoreAddress" class="control-label"></label>
+                <select asp-for="StoreAddress" class="form-control" asp-items="@Html.GetEnumSelectList<StoreAddress>()"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsDelivered" class="control-label"></label>
+                <input type="checkbox" asp-for="IsDelivered" />
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentMethod" class="control-label"></label>
+                <select asp-for="PaymentMethod" class="form-control" asp-items="@Html.GetEnumSelectList<PaymentMethod>()"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label">Customer</label>
+                <select asp-for="UserId" class="form-control" asp-items="@(new SelectList(ViewBag.Users, "Id", "FullName"))"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfBurgers" class="control-label"></label>
+                <input type="number" asp-for="NumberOfBurgers" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-default">Confirm editing?</button>
+            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index","Order")';">Cancel</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BurgerApp.MAPPERS\BurgerApp.MAPPERS.csproj" />
+    <ProjectReference Include="..\BurgerApp.VIEWMODELS\BurgerApp.VIEWMODELS.csproj" />
+    <ProjectReference Include="..\DATA.ACCESS\BurgerApp.DATA.ACCESS.csproj" />
+  </ItemGroup>
+
+</Project>

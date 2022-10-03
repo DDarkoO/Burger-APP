@@ -1,0 +1,13 @@
+﻿@using BurgerApp.VIEWMODELS.HomeViewModels
+@model HomeViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1> WELCOME TO BURGERLAND !!!</h1>
+<hr />
+
+<h5>The burger of all burgers: <strong>@Model.MostPopularBurger</strong></h5>
+
+<h5>We have successfully completed <strong>@Model.OrdersDone</strong> orders so far, with average price of <u>@Model.AverageOrderPrice</u> MKD per order!</h5>

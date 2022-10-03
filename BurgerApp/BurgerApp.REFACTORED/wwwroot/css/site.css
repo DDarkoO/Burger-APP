@@ -1,0 +1,21 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: linear-gradient(to left, #5d7d9d, #5786a4, #528faa, #4d98ad, #4ca1af);
+    /*background: rgb(225,250,137);
+    background: radial-gradient(circle, rgba(225,250,137,0.3029586834733894) 0%, rgba(255,255,255,1) 0%, rgba(244,246,246,1) 0%, rgba(249,252,252,1) 0%, rgba(255,255,255,1) 0%, rgba(189,247,201,1) 100%);*/
+}

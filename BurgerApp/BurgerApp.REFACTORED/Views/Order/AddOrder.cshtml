@@ -1,0 +1,36 @@
+﻿@using BurgerApp.DOMAIN.Enums
+@using BurgerApp.VIEWMODELS.OrderViewModels
+@model OrderViewModel
+
+<h3> Add new order</h3>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddOrder2" method="post">
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label">Name and surname</label>
+                <select asp-for="UserId" class="form-control" asp-items="@(new SelectList(ViewBag.Users, "Id", "FullName"))"></select> 
+            </div>
+            <div class="form-group">
+                <label asp-for="StoreAddress" class="control-label"></label>
+                <select asp-for="StoreAddress" class="form-control" asp-items="Html.GetEnumSelectList<StoreAddress>()"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentMethod" class="control-label"></label>
+                <select asp-for="PaymentMethod" class="form-control" asp-items="Html.GetEnumSelectList<PaymentMethod>()" ></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsDelivered" class="control-label"></label>
+                <input type="checkbox" asp-for="IsDelivered" />
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfBurgers" class="control-label"></label>
+                <input type="number" class="form-control" asp-for="NumberOfBurgers" />
+            </div>
+            <div class="form-group">
+                <input type ="hidden" asp-for="BurgerOrders" value="@Model.NumberOfBurgers" />
+            </div>
+            <button type="submit" class="btn btn-default">Add</button>
+        </form>
+    </div>
+</div>

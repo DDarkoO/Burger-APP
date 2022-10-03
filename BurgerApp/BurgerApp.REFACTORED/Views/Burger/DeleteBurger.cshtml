@@ -1,0 +1,7 @@
+﻿@using BurgerApp.VIEWMODELS.BurgerViewModels
+@model BurgerViewModel
+
+<h3> Are you sure you want to delete the burger @Model.Name from our menu? :( </h3>
+
+<a asp-controller="Burger" asp-action="ConfirmDelete" asp-route-id="@Model.Id">Confirm delete</a>
+

@@ -1,0 +1,22 @@
+﻿@model OrderDetailsViewModel
+
+<h3> Are you sure you want to delete the following order:</h3>
+
+<div class="card-body">
+    <h5 class="card-title"><b>Customer</b>: @Model.FullName</h5>
+    <p class="card-text"><b>Payment Method</b>: @Model.PaymentMethod</p>
+    <p class="card-text"><b>Price</b>: @Model.Price</p>
+</div>
+
+<div class="row">
+    <div>Burgers ordered:</div>
+    @foreach (var burger in @Model.BurgerNames)
+    {
+        <div class="card">
+            <p>@burger</p>
+        </div>
+    }
+</div>
+
+<a asp-controller="Order" asp-action="ConfirmDelete" asp-route-id="@Model.Id">Confirm delete</a>
+

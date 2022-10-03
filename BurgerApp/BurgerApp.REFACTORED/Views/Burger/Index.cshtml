@@ -1,0 +1,64 @@
+﻿@using BurgerApp.VIEWMODELS.BurgerViewModels
+
+@model List<BurgerDetailsViewModel>
+
+<a asp-controller="Burger" asp-action="AddBurger">Add new burger to the menu</a>
+
+<hr />
+
+<h4><img src="@Url.Content("https://play-lh.googleusercontent.com/yZls8AF1gWY5IhIIXowVg3pWrYeOvnkWzSno8kESFOI3APAAT5CByq6Sm0prQcre0uE=w256-h450-rw")" width="50" height="50" alt="Image" />Pick your favorite burger of the menu below:</h4>
+
+<hr />
+
+
+
+@{
+    @foreach (BurgerDetailsViewModel burger in Model)
+    {
+        <div class="bg-dark text-white" style="max-width: 40rem; margin-left:10px; margin-bottom: 10px; padding:10px; border-radius: 10px">
+            My name is <b style="color: green">@burger.Name.</b>
+
+            @if (@burger.IsVegan)
+            {
+                <span>I am a vegan burger.</span>
+
+                <br>
+            }
+            else
+            {
+                <span>I am protein - rich burger with high - quality meet.</span>
+
+                <br>
+            }
+            @if (@burger.IsVegetarian)
+            {
+                <span>I am a vegetarian burger.</span>
+
+                <br>
+            }
+            else
+            {
+                <span>Looking for a vegetarian burger ? Well, I am not, but you check up some of my green cousins in this menu :)</span>
+
+                <br>
+            }
+            @if (@burger.HasFries)
+            {
+                <span>I am also very rich in French fries.</span>
+
+                <br>
+            }
+            else
+            {
+                <span>The French fries are not strong with this one.</span>
+
+                <br>
+            }
+            <p style="margin: 0px;">I cost <b>@burger.Price denars.</b></p>
+
+            <a asp-controller="Burger" asp-action="EditBurger" asp-route-id="@burger.Id">Edit</a>
+            <a asp-controller="Burger" asp-action="DeleteBurger" asp-route-id="@burger.Id">Delete</a>
+        </div>
+        <hr />
+    }
+}
